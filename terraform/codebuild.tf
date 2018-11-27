@@ -12,6 +12,16 @@ resource "aws_codebuild_project" "sitespeed" {
     image           = "sitespeedio/sitespeed.io:7.3.6"
     type            = "LINUX_CONTAINER"
     privileged_mode = "true"
+
+    environment_variable {
+      "name"  = "S3_BUCKET"
+      "value" = "${aws_s3_bucket.sitespeed.bucket}"
+    }
+
+    environment_variable {
+      "name"  = "S3_BUCKET_RESULT"
+      "value" = "${aws_s3_bucket.query-result.bucket}"
+    }
   }
 
   source {

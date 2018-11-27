@@ -1,6 +1,6 @@
 {
   "browsertime": {
-    "iterations": 1,
+    "iterations": 3,
     "speedIndex": true
   },
   "s3": {

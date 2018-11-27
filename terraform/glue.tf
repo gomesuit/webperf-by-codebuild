@@ -3,7 +3,7 @@ resource "aws_glue_catalog_database" "sitespeed" {
 }
 
 resource "aws_glue_catalog_table" "json" {
-  database_name = "sitespeed"
+  database_name = "${aws_glue_catalog_database.sitespeed.name}"
   name          = "json"
   table_type    = "EXTERNAL_TABLE"
 

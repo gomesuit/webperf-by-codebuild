@@ -9,8 +9,6 @@ phases:
   pre_build:
     commands:
       - OUTPUT_DATE="$(date +'%Y/%m/%d/%H/%M')"
-      - S3_BUCKET=webperf-by-codebuild-5b0e5a4c3c9d
-      - S3_BUCKET_RESULT=webperf-by-codebuild-query-result-5b0e5a4c3c9d
 
   build:
     commands:

@@ -3,11 +3,13 @@ resource "random_id" "webperf-s3" {
 }
 
 resource "aws_s3_bucket" "query-result" {
-  bucket = "webperf-by-codebuild-query-result-${random_id.webperf-s3.hex}"
+  bucket        = "webperf-by-codebuild-query-result-${random_id.webperf-s3.hex}"
+  force_destroy = true
 }
 
 resource "aws_s3_bucket" "sitespeed" {
-  bucket = "webperf-by-codebuild-${random_id.webperf-s3.hex}"
+  bucket        = "webperf-by-codebuild-${random_id.webperf-s3.hex}"
+  force_destroy = true
 
   website {
     error_document = "error.html"
