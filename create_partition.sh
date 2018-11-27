@@ -30,7 +30,7 @@ LOCATION
 
 echo "$SQL"
 
-output_location="s3://$S3_BUCKET_RESULT/sitespeed/"
+output_location="s3://$S3_BUCKET_RESULT/"
 
 aws athena start-query-execution \
   --result-configuration "OutputLocation=$output_location" \
