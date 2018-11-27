@@ -22,7 +22,7 @@ ADD IF NOT EXISTS PARTITION (
   month = '$MONTH',
   day = '$DAY',
   hour = '$HOUR',
-  minutes = '$MINUTE'
+  minute = '$MINUTE'
 )
 LOCATION
   's3://$S3_BUCKET/json/$DOMAIN/$DEVICE/$CATEGORY/$OUTPUT_DATE';
