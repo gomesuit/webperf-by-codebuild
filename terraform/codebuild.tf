@@ -108,11 +108,11 @@ resource "aws_iam_role_policy" "athena" {
     {
       "Effect": "Allow",
       "Action": [
-        "s3:PutObject",
-        "s3:GetObject"
+        "s3:*"
       ],
       "Resource": [
-        "${aws_s3_bucket.query-result.arn}/sitespeed/*"
+        "${aws_s3_bucket.query-result.arn}",
+        "${aws_s3_bucket.query-result.arn}/*"
       ]
     },
     {
