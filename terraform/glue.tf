@@ -6,7 +6,6 @@ resource "aws_glue_catalog_table" "json" {
   database_name = "sitespeed"
   name          = "json"
   table_type    = "EXTERNAL_TABLE"
-  owner         = "owner"
 
   partition_keys {
     name = "domain"
