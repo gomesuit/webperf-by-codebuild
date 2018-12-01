@@ -1,9 +1,9 @@
-resource "aws_glue_catalog_database" "sitespeed" {
-  name = "sitespeed"
+resource "aws_glue_catalog_database" "webperf-by-codebuild" {
+  name = "webperf-by-codebuild"
 }
 
 resource "aws_glue_catalog_table" "json" {
-  database_name = "${aws_glue_catalog_database.sitespeed.name}"
+  database_name = "${aws_glue_catalog_database.webperf-by-codebuild.name}"
   name          = "json"
   table_type    = "EXTERNAL_TABLE"
 
