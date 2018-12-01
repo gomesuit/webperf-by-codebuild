@@ -1,14 +1,14 @@
-resource "random_id" "webperf-s3" {
+resource "random_id" "webperf" {
   byte_length = 6
 }
 
 resource "aws_s3_bucket" "query-result" {
-  bucket        = "webperf-by-codebuild-query-result-${random_id.webperf-s3.hex}"
+  bucket        = "webperf-by-codebuild-query-result-${random_id.webperf.hex}"
   force_destroy = true
 }
 
-resource "aws_s3_bucket" "sitespeed" {
-  bucket        = "webperf-by-codebuild-${random_id.webperf-s3.hex}"
+resource "aws_s3_bucket" "webperf-by-codebuild" {
+  bucket        = "webperf-by-codebuild-${random_id.webperf.hex}"
   force_destroy = true
 
   website {
@@ -17,8 +17,8 @@ resource "aws_s3_bucket" "sitespeed" {
   }
 }
 
-resource "aws_s3_bucket_policy" "sitespeed" {
-  bucket = "${aws_s3_bucket.sitespeed.id}"
+resource "aws_s3_bucket_policy" "webperf-by-codebuild" {
+  bucket = "${aws_s3_bucket.webperf-by-codebuild.id}"
 
   policy = <<POLICY
 {
@@ -28,7 +28,7 @@ resource "aws_s3_bucket_policy" "sitespeed" {
       "Effect": "Allow",
       "Principal": "*",
       "Action": "s3:*",
-      "Resource": "${aws_s3_bucket.sitespeed.arn}/*",
+      "Resource": "${aws_s3_bucket.webperf-by-codebuild.arn}/*",
       "Condition": {
         "IpAddress": {
           "aws:SourceIp": [

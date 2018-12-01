@@ -88,7 +88,7 @@ resource "aws_glue_catalog_table" "json" {
     }
 
     input_format      = "org.apache.hadoop.mapred.TextInputFormat"
-    location          = "s3://${aws_s3_bucket.sitespeed.bucket}/json/"
+    location          = "s3://${aws_s3_bucket.webperf-by-codebuild.bucket}/json/"
     output_format     = "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
     number_of_buckets = "-1"
 
