@@ -69,22 +69,17 @@ resource "aws_glue_catalog_table" "json" {
 
     columns {
       name = "navigationtiming"
-      type = "struct<connectStart:struct<median:int,mean:int,min:int,p90:int,max:int>,domComplete:struct<median:int,mean:int,min:int,p90:int,max:int>,domContentLoadedEventEnd:struct<median:int,mean:int,min:int,p90:int,max:int>,domContentLoadedEventStart:struct<median:int,mean:int,min:int,p90:int,max:int>,domInteractive:struct<median:int,mean:int,min:int,p90:int,max:int>,domainLookupEnd:struct<median:int,mean:int,min:int,p90:int,max:int>,domainLookupStart:struct<median:int,mean:int,min:int,p90:int,max:int>,duration:struct<median:int,mean:int,min:int,p90:int,max:int>,fetchStart:struct<median:int,mean:int,min:int,p90:int,max:int>,loadEventEnd:struct<median:int,mean:int,min:int,p90:int,max:int>,loadEventStart:struct<median:int,mean:int,min:int,p90:int,max:int>,redirectEnd:struct<median:int,mean:int,min:int,p90:int,max:int>,redirectStart:struct<median:int,mean:int,min:int,p90:int,max:int>,requestStart:struct<median:int,mean:int,min:int,p90:int,max:int>,responseEnd:struct<median:int,mean:int,min:int,p90:int,max:int>,responseStart:struct<median:int,mean:int,min:int,p90:int,max:int>,secureConnectionStart:struct<median:int,mean:int,min:int,p90:int,max:int>,startTime:struct<median:int,mean:int,min:int,p90:int,max:int>,unloadEventEnd:struct<median:int,mean:int,min:int,p90:int,max:int>,unloadEventStart:struct<median:int,mean:int,min:int,p90:int,max:int>,workerStart:struct<median:int,mean:int,min:int,p90:int,max:int>>"
+      type = "struct<connectstart:struct<median:int,mean:int,min:int,p90:int,max:int>,domcomplete:struct<median:int,mean:int,min:int,p90:int,max:int>,domcontentloadedeventend:struct<median:int,mean:int,min:int,p90:int,max:int>,domcontentloadedeventstart:struct<median:int,mean:int,min:int,p90:int,max:int>,dominteractive:struct<median:int,mean:int,min:int,p90:int,max:int>,domainlookupend:struct<median:int,mean:int,min:int,p90:int,max:int>,domainlookupstart:struct<median:int,mean:int,min:int,p90:int,max:int>,duration:struct<median:int,mean:int,min:int,p90:int,max:int>,fetchstart:struct<median:int,mean:int,min:int,p90:int,max:int>,loadeventend:struct<median:int,mean:int,min:int,p90:int,max:int>,loadeventstart:struct<median:int,mean:int,min:int,p90:int,max:int>,redirectend:struct<median:int,mean:int,min:int,p90:int,max:int>,redirectstart:struct<median:int,mean:int,min:int,p90:int,max:int>,requeststart:struct<median:int,mean:int,min:int,p90:int,max:int>,responseend:struct<median:int,mean:int,min:int,p90:int,max:int>,responsestart:struct<median:int,mean:int,min:int,p90:int,max:int>,secureconnectionstart:struct<median:int,mean:int,min:int,p90:int,max:int>,starttime:struct<median:int,mean:int,min:int,p90:int,max:int>,unloadeventend:struct<median:int,mean:int,min:int,p90:int,max:int>,unloadeventstart:struct<median:int,mean:int,min:int,p90:int,max:int>,workerstart:struct<median:int,mean:int,min:int,p90:int,max:int>>"
     }
 
     columns {
       name = "pagetimings"
-      type = "struct<backEndTime:struct<median:int,mean:int,min:int,p90:int,max:int>,domContentLoadedTime:struct<median:int,mean:int,min:int,p90:int,max:int>,domInteractiveTime:struct<median:int,mean:int,min:int,p90:int,max:int>,domainLookupTime:struct<median:int,mean:int,min:int,p90:int,max:int>,frontEndTime:struct<median:int,mean:int,min:int,p90:int,max:int>,pageDownloadTime:struct<median:int,mean:int,min:int,p90:int,max:int>,pageLoadTime:struct<median:int,mean:int,min:int,p90:int,max:int>,redirectionTime:struct<median:int,mean:int,min:int,p90:int,max:int>,serverConnectionTime:struct<median:int,mean:int,min:int,p90:int,max:int>,serverResponseTime:struct<median:int,mean:int,min:int,p90:int,max:int>>"
-    }
-
-    columns {
-      name = "painttiming"
-      type = "struct<first-contentful-paint:struct<median:int,mean:int,min:int,p90:int,max:int>,first-paint:struct<median:int,mean:int,min:int,p90:int,max:int>>"
+      type = "struct<backendtime:struct<median:int,mean:int,min:int,p90:int,max:int>,domcontentloadedtime:struct<median:int,mean:int,min:int,p90:int,max:int>,dominteractivetime:struct<median:int,mean:int,min:int,p90:int,max:int>,domainlookuptime:struct<median:int,mean:int,min:int,p90:int,max:int>,frontendtime:struct<median:int,mean:int,min:int,p90:int,max:int>,pagedownloadtime:struct<median:int,mean:int,min:int,p90:int,max:int>,pageloadtime:struct<median:int,mean:int,min:int,p90:int,max:int>,redirectiontime:struct<median:int,mean:int,min:int,p90:int,max:int>,serverconnectiontime:struct<median:int,mean:int,min:int,p90:int,max:int>,serverresponsetime:struct<median:int,mean:int,min:int,p90:int,max:int>>"
     }
 
     columns {
       name = "visualmetrics"
-      type = "struct<SpeedIndex:struct<median:int,mean:int,min:int,p90:int,max:int>,PerceptualSpeedIndex:struct<median:int,mean:int,min:int,p90:int,max:int>,FirstVisualChange:struct<median:int,mean:int,min:int,p90:int,max:int>,LastVisualChange:struct<median:int,mean:int,min:int,p90:int,max:int>,VisualReadiness:struct<median:int,mean:int,min:int,p90:int,max:int>,VisualComplete85:struct<median:int,mean:int,min:int,p90:int,max:int>,VisualComplete95:struct<median:int,mean:int,min:int,p90:int,max:int>,VisualComplete99:struct<median:int,mean:int,min:int,p90:int,max:int>>"
+      type = "struct<speedindex:struct<median:int,mean:int,min:int,p90:int,max:int>,perceptualspeedindex:struct<median:int,mean:int,min:int,p90:int,max:int>,firstvisualchange:struct<median:int,mean:int,min:int,p90:int,max:int>,lastvisualchange:struct<median:int,mean:int,min:int,p90:int,max:int>,visualreadiness:struct<median:int,mean:int,min:int,p90:int,max:int>,visualcomplete85:struct<median:int,mean:int,min:int,p90:int,max:int>,visualcomplete95:struct<median:int,mean:int,min:int,p90:int,max:int>,visualcomplete99:struct<median:int,mean:int,min:int,p90:int,max:int>>"
     }
 
     input_format      = "org.apache.hadoop.mapred.TextInputFormat"
@@ -94,7 +89,7 @@ resource "aws_glue_catalog_table" "json" {
 
     ser_de_info {
       parameters {
-        paths = "firstPaint,fullyLoaded,navigationTiming,pageTimings,paintTiming,rumSpeedIndex,visualMetrics"
+        paths = "firstPaint,fullyLoaded,navigationTiming,pageTimings,rumSpeedIndex,visualMetrics"
       }
 
       name                  = "OrcSerDe"
