@@ -1,5 +1,5 @@
 resource "aws_glue_catalog_database" "webperf-by-codebuild" {
-  name = "webperf-by-codebuild-${random_id.webperf.hex}"
+  name = "webperf_by_codebuild_${random_id.webperf.hex}"
 }
 
 resource "aws_glue_catalog_table" "json" {
