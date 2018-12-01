@@ -1,13 +1,11 @@
 ```bash
-$ cat terraform.tfvars
-my_ip = "XXX.XXX.XXX.XXX/32"
-
-git_repository = "https://github.com/gomesuit/webperf-by-codebuild.git"
+$ cp terraform.tfvars.sample terraform.tfvars
+$ vim terraform.tfvars
 ```
 
 ```bash
-$ cat backend.tfvars
-bucket = "example-terraform"
+$ cp backend.tfvars.sample backend.tfvars`
+$ vim backend.tfvars
 ```
 
 ```bash

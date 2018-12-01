@@ -1,0 +1,3 @@
+my_ip = "XXX.XXX.XXX.XXX/32"
+
+git_repository = "https://github.com/gomesuit/webperf-by-codebuild"
