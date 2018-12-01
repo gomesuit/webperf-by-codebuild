@@ -13,7 +13,7 @@ MINUTE=$(echo $OUTPUT_DATE | awk -F/ '{print $5}')
 
 SQL="""
 ALTER TABLE
-  sitespeed.json
+  $ATHENA_DATABASE.json
 ADD IF NOT EXISTS PARTITION (
   domain = '$DOMAIN',
   device = '$DEVICE',
