@@ -1,5 +1,5 @@
 resource "aws_cloudwatch_event_rule" "webperf-by-codebuild" {
-  name                = "exec-webperf-by-codebuild"
+  name                = "exec-webperf-by-codebuild-${random_id.webperf.hex}"
   schedule_expression = "cron(0 * * * ? *)"
 }
 
@@ -10,7 +10,7 @@ resource "aws_cloudwatch_event_target" "webperf-by-codebuild" {
 }
 
 resource "aws_iam_role" "webperf-by-codebuild-invoke-codebuild" {
-  name = "webperf-by-codebuild-invoke-codebuild"
+  name = "webperf-by-codebuild-invoke-codebuild-${random_id.webperf.hex}"
   path = "/service-role/"
 
   assume_role_policy = <<EOF
