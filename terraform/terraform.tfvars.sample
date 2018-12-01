@@ -1,3 +1,5 @@
+# S3のアクセス元IPの制限
 my_ip = "XXX.XXX.XXX.XXX/32"
 
+# 自身のgithubレポジトリ
 git_repository = "https://github.com/gomesuit/webperf-by-codebuild"
