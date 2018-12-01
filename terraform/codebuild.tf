@@ -9,7 +9,7 @@ resource "aws_codebuild_project" "webperf-by-codebuild" {
 
   environment {
     compute_type    = "BUILD_GENERAL1_SMALL"
-    image           = "sitespeedio/sitespeed.io:7.3.6"
+    image           = "sitespeedio/sitespeed.io:7.7.2"
     type            = "LINUX_CONTAINER"
     privileged_mode = "true"
 
