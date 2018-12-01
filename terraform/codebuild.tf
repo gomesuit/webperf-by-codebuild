@@ -1,6 +1,6 @@
-resource "aws_codebuild_project" "sitespeed" {
-  name          = "sitespeed"
-  service_role  = "${aws_iam_role.sitespeed.arn}"
+resource "aws_codebuild_project" "webperf-by-codebuild" {
+  name          = "webperf-by-codebuild"
+  service_role  = "${aws_iam_role.webperf-by-codebuild.arn}"
   badge_enabled = "true"
 
   artifacts {
@@ -40,10 +40,10 @@ resource "aws_codebuild_project" "sitespeed" {
 }
 
 resource "aws_cloudwatch_log_group" "codebuild" {
-  name = "/aws/codebuild/${aws_codebuild_project.sitespeed.name}"
+  name = "/aws/codebuild/${aws_codebuild_project.webperf-by-codebuild.name}"
 }
 
-resource "aws_iam_role" "sitespeed" {
+resource "aws_iam_role" "webperf-by-codebuild" {
   name = "codebuild-sitespeed-service-role"
   path = "/service-role/"
 
@@ -65,7 +65,7 @@ EOF
 
 resource "aws_iam_role_policy" "cloudwatch_log" {
   name = "cloudwatch_log"
-  role = "${aws_iam_role.sitespeed.id}"
+  role = "${aws_iam_role.webperf-by-codebuild.id}"
 
   policy = <<EOF
 {
@@ -86,9 +86,9 @@ resource "aws_iam_role_policy" "cloudwatch_log" {
 EOF
 }
 
-resource "aws_iam_role_policy" "sitespeed-s3" {
-  name = "sitespeed-s3"
-  role = "${aws_iam_role.sitespeed.id}"
+resource "aws_iam_role_policy" "webperf-by-codebuild-s3" {
+  name = "webperf-by-codebuild-s3"
+  role = "${aws_iam_role.webperf-by-codebuild.id}"
 
   policy = <<EOF
 {
@@ -109,7 +109,7 @@ EOF
 
 resource "aws_iam_role_policy" "athena" {
   name = "athena"
-  role = "${aws_iam_role.sitespeed.id}"
+  role = "${aws_iam_role.webperf-by-codebuild.id}"
 
   policy = <<EOF
 {

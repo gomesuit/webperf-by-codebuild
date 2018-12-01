@@ -5,7 +5,7 @@ resource "aws_cloudwatch_event_rule" "sitespeed" {
 
 resource "aws_cloudwatch_event_target" "sitespeed" {
   rule     = "${aws_cloudwatch_event_rule.sitespeed.name}"
-  arn      = "${aws_codebuild_project.sitespeed.arn}"
+  arn      = "${aws_codebuild_project.webperf-by-codebuild.arn}"
   role_arn = "${aws_iam_role.invoke-codebuild.arn}"
 }
 
@@ -43,7 +43,7 @@ resource "aws_iam_role_policy" "invoke-codebuild" {
         "codebuild:StartBuild"
       ],
       "Resource": [
-        "${aws_codebuild_project.sitespeed.arn}"
+        "${aws_codebuild_project.webperf-by-codebuild.arn}"
       ]
     }
   ]
