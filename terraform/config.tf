@@ -10,3 +10,7 @@ provider "aws" {
   region  = "ap-northeast-1"
   version = "~> 1.41.0"
 }
+
+resource "random_id" "webperf" {
+  byte_length = 6
+}

@@ -1,7 +1,3 @@
-resource "random_id" "webperf" {
-  byte_length = 6
-}
-
 resource "aws_s3_bucket" "query-result" {
   bucket        = "webperf-by-codebuild-query-result-${random_id.webperf.hex}"
   force_destroy = true
