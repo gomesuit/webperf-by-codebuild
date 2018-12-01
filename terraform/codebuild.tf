@@ -1,5 +1,5 @@
 resource "aws_codebuild_project" "webperf-by-codebuild" {
-  name          = "webperf-by-codebuild"
+  name          = "webperf-by-codebuild-${random_id.webperf.hex}"
   service_role  = "${aws_iam_role.webperf-by-codebuild.arn}"
   badge_enabled = "true"
 
@@ -44,7 +44,7 @@ resource "aws_cloudwatch_log_group" "codebuild" {
 }
 
 resource "aws_iam_role" "webperf-by-codebuild" {
-  name = "codebuild-sitespeed-service-role"
+  name = "webperf-by-codebuild-role-${random_id.webperf.hex}"
   path = "/service-role/"
 
   assume_role_policy = <<EOF
