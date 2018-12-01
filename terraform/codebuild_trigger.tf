@@ -1,16 +1,16 @@
-resource "aws_cloudwatch_event_rule" "sitespeed" {
-  name                = "exec-sitespeed"
+resource "aws_cloudwatch_event_rule" "webperf-by-codebuild" {
+  name                = "exec-webperf-by-codebuild"
   schedule_expression = "cron(0 * * * ? *)"
 }
 
-resource "aws_cloudwatch_event_target" "sitespeed" {
-  rule     = "${aws_cloudwatch_event_rule.sitespeed.name}"
+resource "aws_cloudwatch_event_target" "webperf-by-codebuild" {
+  rule     = "${aws_cloudwatch_event_rule.webperf-by-codebuild.name}"
   arn      = "${aws_codebuild_project.webperf-by-codebuild.arn}"
-  role_arn = "${aws_iam_role.invoke-codebuild.arn}"
+  role_arn = "${aws_iam_role.webperf-by-codebuild-invoke-codebuild.arn}"
 }
 
-resource "aws_iam_role" "invoke-codebuild" {
-  name = "sitespeed-invoke-codebuild"
+resource "aws_iam_role" "webperf-by-codebuild-invoke-codebuild" {
+  name = "webperf-by-codebuild-invoke-codebuild"
   path = "/service-role/"
 
   assume_role_policy = <<EOF
@@ -31,7 +31,7 @@ EOF
 
 resource "aws_iam_role_policy" "invoke-codebuild" {
   name = "invoke-codebuild"
-  role = "${aws_iam_role.invoke-codebuild.id}"
+  role = "${aws_iam_role.webperf-by-codebuild-invoke-codebuild.id}"
 
   policy = <<EOF
 {
